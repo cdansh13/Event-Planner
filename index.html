@@ -13,371 +13,402 @@
   </head>
   <style>
     /* General Styles */
-/* General Styles */
-html {
-    scroll-behavior: smooth;
-}
-body {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-}
-/* Logo Container */
-.logo-container {
-    text-align: center;
-    background-color: black;
+    /* General Styles */
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: "Roboto", sans-serif;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+    }
+    /* Logo Container */
+    .logo-container {
+      text-align: center;
+      background-color: black;
+    }
 
-}
+    .logo-container .navbar-nav {
+      font-size: 2em;
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+    }
 
-.logo-container .navbar-nav {
-    font-size: 2em;
-    font-weight: bold;
-    color: #fff;
-    text-decoration: none;
-}
+    .logo-container .navbar-nav:hover {
+      color: #f4b400; /* Hover color */
+    }
 
-.logo-container .navbar-nav:hover {
-    color: #f4b400; /* Hover color */
-}
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: black; /* Initially transparent background */
+      padding: 20px 0;
+      text-align: center;
+      color: white;
+      z-index: 1000; /* Ensure navbar stays on top of other content */
+      transition: background 0.3s ease; /* Smooth transition for background */
+    }
 
-/* Navbar */
-.navbar {
-    position: sticky;
-    top: 0;
-    background: black; /* Initially transparent background */
-    padding: 20px 0;
-    text-align: center;
-    color: white;
-    z-index: 1000; /* Ensure navbar stays on top of other content */
-    transition: background 0.3s ease; /* Smooth transition for background */
-}
+    .navbar .navbar-brand {
+      font-size: 1.5em;
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 5px;
+    }
 
-.navbar .navbar-brand {
-    font-size: 1.5em;
-    color: #fff;
-    font-weight: bold;
-    text-decoration: none;
-    display: block;
-    margin-bottom: 5px;
-}
+    .navbar-nav {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+    }
 
-.navbar-nav {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    padding: 0;
-}
+    .nav-item {
+      margin: 0 15px;
+    }
 
-.nav-item {
-    margin: 0 15px;
-}
+    .nav-link {
+      font-size: 1.2em;
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.3s ease-in-out;
+    }
 
-.nav-link {
-    font-size: 1.2em;
-    color: #fff;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: color 0.3s ease-in-out;
-}
+    .nav-link:hover {
+      color: #f4b400;
+    }
+    .about-container {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 40px;
+      padding: 20px;
+      border-radius: 10px;
+      /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+    }
 
-.nav-link:hover {
-    color: #f4b400;
-}
-.about-container {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 40px;
-    padding: 20px;
-    border-radius: 10px;
-    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
-}
+    .about-container h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      /* color: #333; */
+    }
 
-.about-container h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    /* color: #333; */
-}
+    .about-container p {
+      font-size: 1.1rem;
+      /* color: #555; */
+      line-height: 1.6;
+    }
 
-.about-container p {
-    font-size: 1.1rem;
-    /* color: #555; */
-    line-height: 1.6;
-}
+    /* Hero Section */
+    .hero {
+      position: relative;
+      background: url("https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29ycG9yYXRlJTIwZXZlbnRzfGVufDB8fDB8fHww")
+        no-repeat center center/cover;
+      color: white;
+      height: 600px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      z-index: 1;
+    }
 
-/* Hero Section */
-.hero {
-    position: relative;
-    background: url('https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29ycG9yYXRlJTIwZXZlbnRzfGVufDB8fDB8fHww') no-repeat center center/cover;
-    color: white;
-    height: 600px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 20px;
-    z-index: 1;
-}
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+      z-index: -1;
+    }
 
-.hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
-    z-index: -1;
-}
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
 
-.hero-content {
-    position: relative;
-    z-index: 2;
-}
+    .hero h1 {
+      font-size: 3.5em;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
 
-.hero h1 {
-    font-size: 3.5em;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    font-weight: bold;
-}
+    .hero p {
+      font-size: 1.5em;
+      margin-bottom: 30px;
+    }
 
-.hero p {
-    font-size: 1.5em;
-    margin-bottom: 30px;
-}
+    .btn {
+      background-color: #0ebac5;
+      color: #fff;
+      padding: 15px 30px;
+      text-decoration: none;
+      border-radius: 25px;
+      font-size: 1.2em;
+      transition: background-color 0.3s ease-in-out;
+    }
 
-.btn {
-    background-color: #0ebac5;
-    color: #fff;
-    padding: 15px 30px;
-    text-decoration: none;
-    border-radius: 25px;
-    font-size: 1.2em;
-    transition: background-color 0.3s ease-in-out;
-}
+    .btn:hover {
+      color: #00c9ff;
+      background-color: white;
+      transition: 0.7s;
+    }
 
-.btn:hover {
-    color: #00C9FF;
-    background-color: white;
-    transition: 0.7s;
-}
+    /* About Section */
+    .about {
+      padding: 60px 20px;
+      text-align: center;
+      background: black;
+      color: whitesmoke;
+    }
 
-/* About Section */
-.about {
-    padding: 60px 20px;
-    text-align: center;
-    background: black;
-    color: whitesmoke;
-}
+    .about h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
 
-.about h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
+    .about p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto 30px;
+    }
 
-.about p {
-    font-size: 1.2rem;
-    max-width: 800px;
-    margin: 0 auto 30px;
-}
+    /* Event Cards */
+    /* Event Cards */
+    .event-cards {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
 
-/* Event Cards */
-/* Event Cards */
-.event-cards {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
+    .event-card {
+      position: relative;
+      width: 250px;
+      height: 300px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
 
-.event-card {
-    position: relative;
-    width: 250px;
-    height: 300px;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+    .event-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(50%); /* Darken the image */
+    }
 
-.event-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(50%); /* Darken the image */
-}
+    .event-card .overlay {
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      transform: translateX(-50%);
+      /* background: rgba(0, 0, 0, 0.6); */
+      color: #fff;
+      padding: 10px 15px;
+      font-size: 1.8rem;
+      font-weight: bold;
+      border-radius: 5px;
+    }
 
-.event-card .overlay {
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    transform: translateX(-50%);
-    /* background: rgba(0, 0, 0, 0.6); */
-    color: #fff;
-    padding: 10px 15px;
-    font-size: 1.8rem;
-    font-weight: bold;
-    border-radius: 5px;
-}
+    /* Testimonials */
+    /* Testimonials Section */
+    .testimonial-big {
+      background-color: #f0f7fa; /* Beautiful background color */
+      text-align: center;
+    }
+    .testimonial-big p {
+      font-size: 1.5em;
+    }
 
-/* Testimonials */
-/* Testimonials Section */
-.testimonial-big{
-    background-color: #f0f7fa; /* Beautiful background color */
-    text-align: center;
-}
-.testimonial-big p{
-    font-size: 1.5em;
-}
+    .testimonials {
+      display: flex;
+      justify-content: center;
+      gap: 30px; /* Adds space between testimonials */
+      padding: 50px 20px;
+      background-color: #f0f7fa; /* Beautiful background color */
+      border-radius: 10px; /* Slight rounding of the corners */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    }
+    .testimonial:hover {
+      transform: translateY(-10px); /* Moves the card up */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Larger shadow on hover for emphasis */
+      transition: 0.5s;
+    }
+    /* Individual Testimonial */
+    .testimonial {
+      background-color: #ffffff;
+      padding: 30px;
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+      text-align: center;
+    }
 
-.testimonials {
-    display: flex;
-    justify-content: center;
-    gap: 30px; /* Adds space between testimonials */
-    padding: 50px 20px;
-    background-color: #f0f7fa; /* Beautiful background color */
-    border-radius: 10px; /* Slight rounding of the corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-.testimonial:hover {
-    transform: translateY(-10px); /* Moves the card up */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Larger shadow on hover for emphasis */
-    transition: 0.5s;
-}
-/* Individual Testimonial */
-.testimonial {
-    background-color: #ffffff;
-    padding: 30px;
-    width: 300px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    text-align: center;
-}
+    .testimonial h3 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      color: #333;
+    }
 
+    .testimonial p {
+      font-size: 1.1em;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
 
-.testimonial h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    color: #333;
-}
+    /* Circular User Image */
+    .testimonial img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 3px solid #f4b400; /* Border around the image */
+    }
 
-.testimonial p {
-    font-size: 1.1em;
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
+    /* Inverted Comma */
+    .testimonial .quote {
+      font-size: 3em;
+      color: #f4b400; /* Beautiful yellow color */
+      margin-bottom: 15px;
+    }
 
-/* Circular User Image */
-.testimonial img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 20px;
-    border: 3px solid #f4b400; /* Border around the image */
-}
+    /* Register Section */
+    .register-section {
+      padding: 60px 20px;
+      background: #fafafa;
+      text-align: center;
+    }
 
-/* Inverted Comma */
-.testimonial .quote {
-    font-size: 3em;
-    color: #f4b400; /* Beautiful yellow color */
-    margin-bottom: 15px;
-}
+    .form-container {
+      background: linear-gradient(135deg, #8e44ad, #3498db);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      width: 80%;
+      margin: auto;
+    }
 
+    .form-container h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
 
-/* Register Section */
-.register-section {
-    padding: 60px 20px;
-    background: #fafafa;
-    text-align: center;
-}
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Ensures that input and textarea are centered */
+      gap: 20px;
+    }
 
-.form-container {
-    background: linear-gradient(135deg, #8e44ad, #3498db);
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    margin: auto;
-}
+    input:focus,
+    textarea:focus {
+      transform: scale(1.05); /* Slightly increases the size of the input box */
+      border: 2px solid #f4b400; /* Adds a border color on focus */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a soft shadow for focus */
+      outline: none; /* Removes the default focus outline */
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease; /* Smooth transition */
+    }
 
-.form-container h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #ffffff;
-}
+    /* Additional Styling for Inputs */
+    input,
+    textarea {
+      padding-right: 15px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      font-size: 1.1rem;
+      border-radius: 10px;
+      border: 1px solid #ddd; /* Default border color */
+      width: 100%;
+      margin-bottom: 15px;
+      transition: all 0.3s ease; /* Ensures smooth transition for all properties */
+    }
+    button {
+      padding: 15px;
+      background-color: transparent;
+      color: white;
+      font-size: 1.5rem;
+      border: none;
+      width: 40%;
+      border-radius: 10px;
+      border: 1px solid white;
+      cursor: pointer;
+    }
 
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Ensures that input and textarea are centered */
-    gap: 20px;
-}
+    button:hover {
+      background-color: black;
+      color: white;
+      border: none;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+        rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+        rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+      transition: 0.7s;
+      width: 40%;
+      font-size: 1.7em;
+    }
 
-input:focus, textarea:focus {
-    transform: scale(1.05); /* Slightly increases the size of the input box */
-    border: 2px solid #f4b400; /* Adds a border color on focus */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a soft shadow for focus */
-    outline: none; /* Removes the default focus outline */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease; /* Smooth transition */
-}
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #333;
+      color: white;
+    }
+    .neon-text{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* height: 100vh; */
+      margin: 0;
+      font-family: "Arial", sans-serif;
+      overflow: hidden;
+    }
 
-/* Additional Styling for Inputs */
-input, textarea {
-    padding-right: 15px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    font-size: 1.1rem;
-    border-radius: 10px;
-    border: 1px solid #ddd; /* Default border color */
-    width: 100%;
-    margin-bottom: 15px; 
-    transition: all 0.3s ease; /* Ensures smooth transition for all properties */
-}
-button {
-    padding: 15px;
-    background-color: transparent;
-    color: white;
-    font-size: 1.5rem;
-    border: none;
-    width: 40%;
-    border-radius: 10px;
-    border: 1px solid white;
-    cursor: pointer;
-}
+    .neon-text {
+      font-size: 4rem;
+      color: #fff;
+      text-shadow: 0 0 5px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e,
+        0 0 40px #ff005e, 0 0 80px #ff005e;
+      animation: glow 1.5s infinite alternate;
+    }
 
-button:hover {
-    background-color: black;
-    color: white;
-    border: none;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;    transition: 0.7s;
-    width: 40%;
-    font-size: 1.7em;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #333;
-    color: white;
-}
-@media only screen and (max-width: 450px) {
-    .nav-link{
+    @keyframes glow {
+      0% {
+        text-shadow: 0 0 5px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e,
+          0 0 40px #ff005e, 0 0 80px #ff005e;
+      }
+      100% {
+        text-shadow: 0 0 5px #00b500, 0 0 5px #00b500, 0 0 10px #00b500,
+          0 0 20px #00b500, 0 0 40px #00b500;
+      }
+    }
+    @media only screen and (max-width: 450px) {
+      .nav-link {
         font-size: 1em;
-    }
-    .testimonials{
+      }
+      .testimonials {
         display: block;
-    }
-    .testimonial{
+      }
+      .testimonial {
         /* margin-bottom: 20px; */
         text-align: center;
         /* margin-left: 20px; */
         margin: auto;
         margin-bottom: 20px;
+      }
     }
-}
   </style>
   <body>
     <!-- Logo Above Navigation -->
@@ -402,7 +433,9 @@ footer {
     <!-- Hero Section -->
     <section class="hero" id="home">
       <div class="hero-content">
-        <h1>Event Planners</h1>
+        <div class="neon-container">
+          <h1 class="neon-text">Event Planners</h1>
+        </div>
         <p>We offer amazing services for your needs</p>
         <a href="#register" class="btn">Join Us Now</a>
       </div>
@@ -411,7 +444,7 @@ footer {
     <!-- About Section with Event Cards -->
     <section class="about" id="about">
       <div class="about-container">
-        <p style="color: rgb(245, 28, 28);font-size: 1.5em;">About Us</p>
+        <p style="color: rgb(245, 28, 28); font-size: 1.5em">About Us</p>
         <h1>We enlighten every event</h1>
         <p>
           We specialize in organizing unforgettable events, ensuring every
@@ -445,32 +478,41 @@ footer {
         </div>
       </div>
     </section>
-<!-- Testimonial -->
- <div class="testimonial-big" id="testimonials">
-
-     <p style="color: rgb(245, 28, 28)">Testimonials</p>
-     <div class="testimonials">
-         
-         <!-- Testimonial 1 -->
-         <div class="testimonial">
-             <div class="quote">“</div>
-             <h3>John Doe</h3>
-             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/434px-Unknown_person.jpg" alt="John's photo">
-             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate leo at felis auctor, eu viverra sapien volutpat.</p>
-            </div>
-            
-            <!-- Testimonial 2 -->
-            <div class="testimonial">
-                <div class="quote">“</div>
-                <h3>Jane Smith</h3>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/434px-Unknown_person.jpg" alt="Jane's photo">
-                <p>Nullam mollis magna ac malesuada tincidunt. Curabitur ac odio at lorem mollis elementum eu eget tortor.</p>
-            </div>
+    <!-- Testimonial -->
+    <div class="testimonial-big" id="testimonials">
+      <p style="color: rgb(245, 28, 28)">Testimonials</p>
+      <div class="testimonials">
+        <!-- Testimonial 1 -->
+        <div class="testimonial">
+          <div class="quote">“</div>
+          <h3>John Doe</h3>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/434px-Unknown_person.jpg"
+            alt="John's photo"
+          />
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+            vulputate leo at felis auctor, eu viverra sapien volutpat.
+          </p>
         </div>
-        
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial">
+          <div class="quote">“</div>
+          <h3>Jane Smith</h3>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/434px-Unknown_person.jpg"
+            alt="Jane's photo"
+          />
+          <p>
+            Nullam mollis magna ac malesuada tincidunt. Curabitur ac odio at
+            lorem mollis elementum eu eget tortor.
+          </p>
+        </div>
+      </div>
     </div>
-        
-        <!-- Register Section -->
+
+    <!-- Register Section -->
     <section class="register-section" id="register">
       <div class="form-container">
         <h2>Register Now</h2>
@@ -490,35 +532,34 @@ footer {
   </body>
   <script>
     // Testimonials Carousel
-let currentIndex = 0;
-const testimonials = document.querySelectorAll('.testimonial-card');
-const intervalTime = 3000;
+    let currentIndex = 0;
+    const testimonials = document.querySelectorAll(".testimonial-card");
+    const intervalTime = 3000;
 
-// Function to display testimonials one by one
-function showTestimonial(index) {
-    testimonials.forEach((testimonial, i) => {
-        testimonial.style.display = i === index ? 'block' : 'none';
-    });
-}
-
-// Automatic rotation of testimonials
-function autoRotate() {
-    currentIndex = (currentIndex + 1) % testimonials.length;
-    showTestimonial(currentIndex);
-}
-
-// Start rotation
-setInterval(autoRotate, intervalTime);
-showTestimonial(currentIndex);
-// JavaScript for navbar background change on scroll
-window.addEventListener('scroll', function () {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 150) {
-        navbar.style.background = 'rgba(18, 10, 10, 0.52)'; // trANSPARENT background when scrolled
-    } else {
-        navbar.style.background = 'black'; // black background when at top
+    // Function to display testimonials one by one
+    function showTestimonial(index) {
+      testimonials.forEach((testimonial, i) => {
+        testimonial.style.display = i === index ? "block" : "none";
+      });
     }
-});
 
+    // Automatic rotation of testimonials
+    function autoRotate() {
+      currentIndex = (currentIndex + 1) % testimonials.length;
+      showTestimonial(currentIndex);
+    }
+
+    // Start rotation
+    setInterval(autoRotate, intervalTime);
+    showTestimonial(currentIndex);
+    // JavaScript for navbar background change on scroll
+    window.addEventListener("scroll", function () {
+      const navbar = document.querySelector(".navbar");
+      if (window.scrollY > 150) {
+        navbar.style.background = "rgba(18, 10, 10, 0.52)"; // trANSPARENT background when scrolled
+      } else {
+        navbar.style.background = "black"; // black background when at top
+      }
+    });
   </script>
 </html>
