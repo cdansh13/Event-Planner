@@ -541,7 +541,7 @@
           <input type="number" name = "PhoneNo" placeholder="Your Phone No." required />
           <input type="email" name = "Email" placeholder="Your Email" required />
 <!--           <textarea placeholder="Your Message" name = "Message" rows="5"></textarea> -->
-          <button type="submit">Submit</button>
+          <button type="submit" id= "submitButton" >Submit</button>
         </form>
       </div>
     </section>
@@ -558,7 +558,7 @@
 
     const form = event.target;
     const formData = new FormData(form);
-
+    const submitButton = document.getElementById('submitButton');
     fetch('https://script.google.com/macros/s/AKfycby9jOv5EPcOGILJ-yGdAXWWJBWvqAY7_tqMinJEXEuqpyjswoUGkdns603SCUPZQsl_/exec', {
       method: 'POST',
       body: formData,
@@ -566,6 +566,7 @@
     .then(response => {
       if (response.ok) {
         // Optionally, handle successful submission
+        submitButton.textContent = 'Thank You!'; // Change button text upon successful submission
         console.log('Form submitted successfully');
       } else {
         // Optionally, handle errors
